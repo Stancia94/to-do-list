@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  width: auto;
+  color: var(--color-accent);
+  border: 2px solid currentColor;
+  border-radius: 10px;
+  padding: 15px;
+
+  &__title{
+    font-weight: 900;
+    font-size: 20px;
+  }
+
+}

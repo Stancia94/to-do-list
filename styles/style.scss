@@ -1,0 +1,15 @@
+@import 'reset',
+        'fonts',
+        'variables',
+        'global', 
+        'media',
+        'mixins',
+        'utils';
+@import './blocks/main',
+        './blocks/header',
+        './blocks/interface',
+        './blocks/list',
+        './blocks/input',
+        './blocks/button-default',
+        './blocks/button-close',
+        './blocks/checkbox-task';

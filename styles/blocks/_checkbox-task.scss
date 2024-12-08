@@ -1,0 +1,26 @@
+.checkbox-task {
+  display: none;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  &::after {
+    content: '';
+    cursor: pointer;
+    display: block;
+    width: 21px;
+    aspect-ratio: 1;
+    border: 2px solid var(--color-main);
+    border-radius: var(--border-radius-big);
+    transition-duration: 0.3s;
+  }
+
+  &:has(> .checkbox-task:checked)::after {
+    content: '✓';
+    text-align: center;
+  }
+
+  &:has(> .checkbox-task:checked)+p {
+    text-decoration: 2px line-through var(--color-red);
+  }
+}

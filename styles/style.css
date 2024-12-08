@@ -1,0 +1,247 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:focus, a:active {
+  outline: none;
+}
+a:visited, a:hover {
+  text-decoration: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: auto;
+  width: auto;
+  font-size: 100%;
+  line-height: 1;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  line-height: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  width: inherit;
+  height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+@font-face {
+  font-family: "LexendDeca";
+  src: local("LexendDeca-Regular"), url("../assets/fonts/LexendDeca-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "LexendDeca";
+  src: local("LexendDeca-Black"), url("../assets/fonts/LexendDeca-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-main-gradient: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
+  --color-main: #ede7e0;
+  --color-red: #ce472f;
+  --color-accent: #519674;
+  --border-radius-big: 16px;
+  --border-radius-small: 10px;
+}
+
+body {
+  background: var(--color-main);
+  padding: 20px;
+  font-family: "LexendDeca";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.main {
+  color: var(--color-main);
+  display: flex;
+  margin-top: 10px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.main__list {
+  min-width: -moz-min-content;
+  min-width: min-content;
+  max-width: 33.3333333333%;
+}
+
+.header {
+  display: flex;
+  width: auto;
+  color: var(--color-accent);
+  border: 2px solid currentColor;
+  border-radius: 10px;
+  padding: 15px;
+}
+.header__title {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 20px;
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius-big);
+}
+.list__entry {
+  display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  align-items: start;
+}
+.list__task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  padding: 8px 15px 8px 8px;
+  border: 2px solid var(--color-main);
+  border-radius: var(--border-radius-small);
+  word-break: break-all;
+}
+.list__checkbox, .list__label {
+  order: 1;
+}
+.list__input {
+  flex: 1;
+}
+
+.input {
+  padding: 8px 20px 8px 8px;
+  border-radius: var(--border-radius-small);
+  resize: none;
+}
+
+.button-default {
+  padding: 8px 20px;
+  border-radius: var(--border-radius-small);
+  background-color: #21324b;
+  color: white;
+  border: 2px solid currentColor;
+  transition-duration: 0.2s;
+}
+.button-default:hover {
+  scale: 1.05;
+}
+.button-default:active {
+  scale: 0.95;
+}
+
+.button-close {
+  background-color: var(--color-red);
+  aspect-ratio: 1;
+  width: 75px;
+  color: var(--color-main);
+  border-radius: 50%;
+  border: 2px solid white;
+  transition-duration: 0.2s;
+}
+.button-close:hover {
+  scale: 1.05;
+}
+.button-close:active {
+  scale: 0.95;
+}
+
+.checkbox-task {
+  display: none;
+  cursor: pointer;
+}
+
+.checkbox-label::after {
+  content: "";
+  cursor: pointer;
+  display: block;
+  width: 21px;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-main);
+  border-radius: var(--border-radius-big);
+  transition-duration: 0.3s;
+}
+.checkbox-label:has(> .checkbox-task:checked)::after {
+  content: "✓";
+  text-align: center;
+}
+.checkbox-label:has(> .checkbox-task:checked) + p {
+  -webkit-text-decoration: 2px line-through var(--color-red);
+          text-decoration: 2px line-through var(--color-red);
+}/*# sourceMappingURL=style.css.map */

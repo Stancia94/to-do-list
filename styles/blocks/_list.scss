@@ -1,0 +1,31 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 20px;
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius-big);
+
+  &__entry {
+    display: flex;
+    column-gap: 5px;
+    align-items: start;
+  }
+
+  &__task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+    padding: 8px 15px 8px 8px;
+    border: 2px solid var(--color-main);
+    border-radius: var(--border-radius-small);
+    word-break: break-all;
+  }
+  &__checkbox, &__label{
+    order: 1;
+  }
+  &__input {
+    flex: 1;
+  }
+}

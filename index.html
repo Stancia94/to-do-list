@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/icon-to-do.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>to-do-list</title>
+</head>
+<header class="header">
+  <div class="header__inner">
+    <div class="header__title">
+      <h1> To-do-app</h1>
+    </div>
+  </div>
+</header>
+<body>
+  <aside class="interface">
+  </aside>
+  <main>
+    <section class="main">
+      <div class="main__list list">
+        <div class="list__title">
+          <p>Day</p>
+        </div>
+        <form class="list__entry" id="formTask">
+          <textarea rows="1" spellcheck="true" type="text" class="list__input input" placeholder="add task"
+            required></textarea>
+          <button id="submitTask" type="submit" class="button-default">add</button>
+        </form>
+        <div class="list__task">
+          <label class="checkbox-label list__label ">
+            <input type="checkbox" class="list__checkbox checkbox-task">
+          </label>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
+        </div>
+        <div class="list__task">
+          <label class="checkbox-label list__label ">
+            <input type="checkbox" class="list__checkbox checkbox-task">
+          </label>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
