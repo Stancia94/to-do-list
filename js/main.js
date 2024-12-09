@@ -150,6 +150,11 @@ class CheckListItem {
     checkBox.type = 'checkbox'
     checkBox.classList.add('list__checkbox', 'checkbox-task')
 
+    checkBox.addEventListener('change', () => {
+      this.setState(checkBox.checked)
+      console.log(this.state);
+    })
+
     const content = document.createElement('p')
     content.textContent = this.content
 
