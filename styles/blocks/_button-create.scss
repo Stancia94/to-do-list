@@ -1,0 +1,26 @@
+.button-create {
+  position: relative;
+  transition-duration: 0.2s;
+
+  &:hover {
+    scale: 1.1;
+  }
+
+  &:active {
+    scale: 0.90;
+  }
+
+  &::after {
+    content: '+';
+    text-align: center;
+    position: absolute;
+    width: 24px;
+    aspect-ratio: 1;
+    color: var(--color-main);
+    background-color: var(--color-blue);
+    font-size: 20px;
+    border-radius: 50%;
+    top: 20px;
+    transform: translate(-50%, -50%);
+  }
+}

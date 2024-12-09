@@ -101,6 +101,7 @@ p {
   --color-main: #ede7e0;
   --color-red: #ce472f;
   --color-accent: #519674;
+  --color-blue:#21324b;
   --border-radius-big: 16px;
   --border-radius-small: 10px;
 }
@@ -130,9 +131,10 @@ body {
 .main {
   color: var(--color-main);
   display: flex;
+  align-items: start;
+  flex-wrap: wrap;
   margin-top: 10px;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  gap: 30px;
 }
 .main__list {
   min-width: -moz-min-content;
@@ -141,17 +143,34 @@ body {
 }
 
 .header {
-  display: flex;
   width: auto;
   color: var(--color-accent);
   border: 2px solid currentColor;
   border-radius: 10px;
   padding: 15px;
-  justify-content: space-between;
+  min-width: 369px;
 }
 .header__title {
   font-weight: 900;
   font-size: 20px;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.header__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
+  border-radius: var(--border-radius-small);
+}
+.header__interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list {
@@ -195,7 +214,7 @@ body {
 .button-default {
   padding: 8px 20px;
   border-radius: var(--border-radius-small);
-  background-color: #21324b;
+  background-color: var(--color-blue);
   color: white;
   border: 2px solid currentColor;
   transition-duration: 0.2s;
@@ -245,4 +264,28 @@ body {
 .checkbox-label:has(> .checkbox-task:checked) + p {
   -webkit-text-decoration: 2px line-through var(--color-red);
           text-decoration: 2px line-through var(--color-red);
+}
+
+.button-create {
+  position: relative;
+  transition-duration: 0.2s;
+}
+.button-create:hover {
+  scale: 1.1;
+}
+.button-create:active {
+  scale: 0.9;
+}
+.button-create::after {
+  content: "+";
+  text-align: center;
+  position: absolute;
+  width: 24px;
+  aspect-ratio: 1;
+  color: var(--color-main);
+  background-color: var(--color-blue);
+  font-size: 20px;
+  border-radius: 50%;
+  top: 20px;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=style.css.map */

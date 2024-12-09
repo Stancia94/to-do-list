@@ -13,8 +13,11 @@
     <div class="header__title">
       <h1> To-do-app</h1>
     </div>
+    <div class="header__interface">
+      <p>Create a new Record</p>
+      <button class="button-create"></button>
+    </div>
     <div class="header__date">
-      <p></p>
     </div>
   </div>
 </header>
@@ -25,16 +28,16 @@
   <main>
     <section class="main">
       <div class="main__list list">
-        <div class="list__title">
+        <!-- <div class="list__title">
           <p>Day</p>
-        </div>
+        </div> -->
         <form class="list__entry" id="formTask">
           <textarea rows="1" spellcheck="true" type="text" class="list__input input" placeholder="add task"
             required></textarea>
           <button id="submitTask" type="submit" class="button-default">add</button>
         </form>
         <div class="list__task">
-          <label class="checkbox-label list__label ">
+          <label class="checkbox-label list__label">
             <input type="checkbox" class="list__checkbox checkbox-task">
           </label>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
