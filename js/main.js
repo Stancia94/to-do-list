@@ -16,56 +16,55 @@ function setCurrentTime() {
 }
 setCurrentTime()
 
-function createTask(event) {
 
-  const newTask = document.createElement('div')
-  newTask.classList.add('list__task')
-
-  const newCheckbox = document.createElement('input')
-  newCheckbox.type = 'checkbox'
-  newCheckbox.classList.add('checkbox-task', 'list__checkbox')
-
-  const newCheckboxLabel = document.createElement('label')
-  newCheckboxLabel.append(newCheckbox)
-  newCheckboxLabel.classList.add('checkbox-label', 'list__label')
-  newTask.append(newCheckboxLabel)
-
-  const newTaskInner = document.createElement('p')
-
-  newTaskInner.textContent = event.target[0].value
-  newTask.append(newTaskInner)
-
-  const list = event.target.closest('.list')
-
-  list.append(newTask)
-  event.target[0].value = ''
-
-  event.preventDefault()
-}
-
-// document.body.addEventListener('submit', (event) => {
-//   if (event.target.classList.contains('list__entry')) {
-//     createTask(event)
-//     event.preventDefault()
-//   }
-// })
-
-
-
+const mainArea = document.querySelector('.main')
 const buttonCreateNewList = document.querySelector('.button-create')
 buttonCreateNewList.addEventListener('click', () => {
-  document.querySelector('.main').append(new CheckList().getHTMLElementCheckList())
+  const checkList = new CheckList()
+  mainArea.append(checkList.renderCheckListItem())
 })
 
+
+// new CheckList()        // записка
+// CheckList().amountItem // количество задач
+
+// CheckList().removeItem // удаление задачи 
+
+// CheckList().addItem    // добавление задачи 
+
+
+// new CheckListItem()    // задача
+
+// CheckListItem().content // наполнение задачи
+
+
 class CheckList {
-  amountCheckListItem = []
+  amountItem = []
+  list
+
   constructor() {
+    console.log('checklist появился');
   }
-  addTask(content) {
-    let checkListItem = new CheckListItem(content)
-    return checkListItem.renderCheckListItem()
+
+  removeItem(data) {
+    this.amountItem = this.amountItem.filter(element => element.content != data)
   }
-  getHTMLElementCheckList() {
+
+  addItem(content) {
+    const checkListItem = new CheckListItem(content)
+    this.amountItem.push(checkListItem)
+    console.log('В чек лист добавилось новое задание');
+    this.createItem()
+  }
+
+  createItem() {
+    const lastListItem = this.amountItem.at(-1)
+    this.list.append(lastListItem.renderItem())
+    console.log(this.amountItem);
+  }
+
+  renderCheckListItem() {
+
     const list = document.createElement('div')
     list.classList.add('main__list', 'list')
 
@@ -88,56 +87,33 @@ class CheckList {
     buttonSubmit.textContent = 'add'
 
     entryForm.addEventListener('submit', (event) => {
-      list.append(this.addTask(entryForm[0].value))
+      this.addItem(entryElement.value)
       event.preventDefault()
-      this.amountCheckListItem.push(this.addTask(entryForm[0].value))
-      console.log(this.amountCheckListItem);
     })
 
     entryForm.append(entryElement)
     entryForm.append(buttonSubmit)
     list.append(entryForm)
 
+    this.list = list
     return list
   }
+
 }
 
 class CheckListItem {
-  static amountItem = 0
-
-  static logAmountItem() {
-    console.log(this.amountItem)
-  }
+  content
+  state = false
 
   constructor(content) {
     this.content = content
-    this.state = false
-    CheckListItem.amountItem++
   }
-
-  getContent() {
-    return this.content
-  }
-
-  setContent(newContent) {
-    this.content = newContent
-  }
-
-  getState() {
-    return this.state
-  }
-
 
   setState(newState) {
-    if (typeof (newState) != typeof (Boolean())) {
-      console.log("Неправильный тип  данных");
-      return
-    }
     this.state = newState
   }
 
-
-  renderCheckListItem() {
+  renderItem() {
     const wrapper = document.createElement('div')
     wrapper.classList.add('list__task')
 
@@ -152,7 +128,6 @@ class CheckListItem {
 
     checkBox.addEventListener('change', () => {
       this.setState(checkBox.checked)
-      console.log(this.state);
     })
 
     const content = document.createElement('p')
@@ -168,14 +143,12 @@ class CheckListItem {
 
 }
 
-const CheckListObj = new CheckList()
-document.querySelector('.main').append(CheckListObj.getHTMLElementCheckList())
-console.log(CheckListObj.addTask());
-console.log(CheckListObj.getHTMLElementCheckList());
-
-
-
-
-
-
+// const newlist = new CheckList()
+// console.log(newlist.amountItem);
+// newlist.addItem('hello')
+// newlist.addItem('hello!')
+// newlist.addItem('hello!')
+// newlist.addItem('hello!')
+// newlist.addItem('hello!')
+// newlist.removeItem('hell')
 
