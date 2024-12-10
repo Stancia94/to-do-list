@@ -1,42 +1,20 @@
 
-function setCurrentTime() {
-  const headerDate = document.querySelector('.header__date')
+const headerDate = document.querySelector('.header__date')
+function updateDate() {
   let time = new Date()
-  let innerDate =
-    `<p>${time.getDate()}.${time.getMonth() + 1}.${time.getFullYear()} </p>
-  <p>${time.getHours()}: ${time.getMinutes()}: ${time.getSeconds()}</p>`
+  let innerDate = `<p>${time.toLocaleDateString()}</p>`
+  let innerTime = `<p>${time.toLocaleTimeString()}</p>`
   headerDate.innerHTML = innerDate
-  setInterval(() => {
-    let time = new Date()
-    let innerDate =
-      `<p>${time.getDate()}.${time.getMonth() + 1}.${time.getFullYear()} </p>
-    <p>${time.getHours()}: ${time.getMinutes()}: ${time.getSeconds()}</p>`
-    headerDate.innerHTML = innerDate
-  }, 1000)
+  headerDate.innerHTML += innerTime
 }
-setCurrentTime()
+updateDate()
+setInterval(updateDate, 1000)
 
-
+const createCheckListButton = document.querySelector('.button-create')
 const mainArea = document.querySelector('.main')
-const buttonCreateNewList = document.querySelector('.button-create')
-buttonCreateNewList.addEventListener('click', () => {
-  const checkList = new CheckList()
-  mainArea.append(checkList.renderCheckListItem())
+createCheckListButton.addEventListener('click', () => {
+  mainArea.append(new CheckList().renderCheckList())
 })
-
-
-// new CheckList()        // записка
-// CheckList().amountItem // количество задач
-
-// CheckList().removeItem // удаление задачи 
-
-// CheckList().addItem    // добавление задачи 
-
-
-// new CheckListItem()    // задача
-
-// CheckListItem().content // наполнение задачи
-
 
 class CheckList {
   amountItem = []
@@ -63,7 +41,7 @@ class CheckList {
     console.log(this.amountItem);
   }
 
-  renderCheckListItem() {
+  renderCheckList() {
 
     const list = document.createElement('div')
     list.classList.add('main__list', 'list')
@@ -142,13 +120,3 @@ class CheckListItem {
   }
 
 }
-
-// const newlist = new CheckList()
-// console.log(newlist.amountItem);
-// newlist.addItem('hello')
-// newlist.addItem('hello!')
-// newlist.addItem('hello!')
-// newlist.addItem('hello!')
-// newlist.addItem('hello!')
-// newlist.removeItem('hell')
-
