@@ -96,6 +96,20 @@ p {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Andika";
+  src: local("Andika"), url("../assets/fonts/Andika-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Andika";
+  src: local("Andika"), url("../assets/fonts/Andika-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --color-main-gradient: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
   --color-main: #ede7e0;
@@ -109,7 +123,7 @@ p {
 body {
   background: var(--color-main);
   padding: 20px;
-  font-family: "LexendDeca";
+  font-family: "LexendDeca", "Andika";
   font-weight: 400;
   font-size: 16px;
 }
@@ -169,6 +183,15 @@ body {
 }
 .header__interface {
   display: flex;
+  gap: 20px;
+}
+.header__complete {
+  align-self: center;
+  cursor: pointer;
+  color: var(--color-blue);
+}
+.header__create {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -187,16 +210,23 @@ body {
        column-gap: 5px;
   align-items: start;
 }
+.list__interface {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .list__task {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   -moz-column-gap: 10px;
        column-gap: 10px;
   padding: 8px 15px 8px 8px;
   border: 2px solid var(--color-main);
   border-radius: var(--border-radius-small);
   word-break: break-all;
+}
+.list__task p {
+  margin-right: auto;
 }
 .list__checkbox, .list__label {
   order: 1;
@@ -288,4 +318,8 @@ body {
   border-radius: 50%;
   top: 20px;
   transform: translate(-50%, -50%);
+}
+
+.button-delete {
+  background-color: var(--color-red);
 }/*# sourceMappingURL=style.css.map */

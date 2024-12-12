@@ -14,8 +14,13 @@
       <h1> To-do-app</h1>
     </div>
     <div class="header__interface">
-      <p>Create a new Record</p>
-      <button class="button-create"></button>
+      <div class="header__complete">
+        <p>All completed task</p>
+      </div>
+      <div class="header__create">
+        <p>Create a new Record</p>
+        <button class="button-create"> </button>
+      </div>
     </div>
     <div class="header__date">
     </div>
@@ -28,17 +33,25 @@
   <main>
     <section class="main">
       <div class="main__list list">
-        <form class="list__entry" id="formTask">
-          <textarea rows="1" spellcheck="true" type="text" class="list__input input" placeholder="add task"
-            required></textarea>
-          <button id="submitTask" type="submit" class="button-default">add</button>
-        </form>
-        <div class="list__task">
-          <span>1</span>
-          <label class="checkbox-label list__label">
-            <input type="checkbox" class="list__checkbox checkbox-task">
-          </label>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
+        <div class="list__title">
+          <span class="title">Это просто сверстаный блок</span>
+        </div>
+        <div class="list__interface">
+          <form class="list__entry" id="formTask">
+            <textarea rows="1" spellcheck="true" type="text" class="list__input input" placeholder="add task"
+              required></textarea>
+            <button id="submitTask" type="submit" class="button-default">add</button>
+          </form>
+          <button class="button-default button-delete">delete all checked</button>
+        </div>
+        <div id="checklistitem-1">
+          <div class="list__task">
+            <span>1</span>
+            <label class="checkbox-label list__label">
+              <input type="checkbox" class="list__checkbox checkbox-task">
+            </label>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
+          </div>
         </div>
         <div class="list__task">
           <span>2</span>
@@ -50,7 +63,8 @@
       </div>
     </section>
   </main>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" type="module"></script>
+
 </body>
 
 </html>

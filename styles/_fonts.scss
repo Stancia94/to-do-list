@@ -5,10 +5,27 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'LexendDeca';
   src: local('LexendDeca-Black'), url('../assets/fonts/LexendDeca-Black.woff2') format('woff2');
   font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Andika';
+  src: local('Andika'), url('../assets/fonts/Andika-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Andika';
+  src: local('Andika'), url('../assets/fonts/Andika-Regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }

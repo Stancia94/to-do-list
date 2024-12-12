@@ -28,6 +28,17 @@
 
   &__interface {
     display: flex;
+    gap: 20px;
+  }
+
+  &__complete {
+    align-self: center;
+    cursor: pointer;
+    color: var(--color-blue)
+  }
+
+  &__create {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
