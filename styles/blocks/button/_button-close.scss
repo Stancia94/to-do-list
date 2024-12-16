@@ -1,0 +1,37 @@
+.button-close {
+  position: absolute;
+  background-color: var(--color-red);
+  aspect-ratio: 1;
+  width: 20px;
+  color: var(--color-main);
+  border-radius: 50%;
+  border: 2px solid white;
+  transition-duration: 0.2s;
+  top: 10px;
+  right: 10px;
+
+
+  &::after,
+  &::before {
+    content: '';
+    width: 15px;
+    height: 4px;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: white;
+    position: absolute;
+    transition-duration: 0.3s;
+    right: 1px;
+    top: 6px;
+
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+}

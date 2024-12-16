@@ -3,10 +3,12 @@ export class CheckList {
   title = null;
   items = [];
   list;
+  static amountCheckList = 0;
 
   constructor(title, items) {
     this.title = title || 'New list';
     this.items = items || [];
+    CheckList.amountCheckList++;
   }
 
   addItem(item) {
@@ -30,14 +32,25 @@ export class CheckList {
   deleteItems() {
     const itemsDelete = this.items.filter(item => item.checked === true)
     for (let i = 0; i < itemsDelete.length; i++) {
-      itemsDelete[i].delete();
+      itemsDelete[i].delete(true);
     }
     this.updatesItems();
+  }
+
+  delete() {
+    this.title = null;
+    this.list.remove();
+    this.list = null;
+    for (let i = 0; i < this.items.length; i++) {
+      this.items[i].delete(false);
+    }
+    CheckList.amountCheckList--;
   }
 
   render(containerEl) {
     const listEl = document.createElement('div');
     listEl.classList.add('main__list', 'list');
+    listEl.id = 'checklist-' + (CheckList.amountCheckList);
     this.list = listEl;
     listEl.innerHTML =
       `<div class="list__title">
@@ -50,10 +63,15 @@ export class CheckList {
             <button id="submitTask" type="submit" class="button-default">add</button>
           </form>
           <button class="button-default button-delete">complete all checked</button>
-      </div>`
+      </div>
+        <button class="button-close"></button>
+        <button class="button-rollup"></button>`
 
-    const buttonDelete = listEl.querySelector('.button-delete')
-    buttonDelete.addEventListener('click', () => this.deleteItems())
+    const buttonDeleteItems = listEl.querySelector('.button-delete');
+    buttonDeleteItems.addEventListener('click', () => this.deleteItems());
+
+    const buttonDeleteList = listEl.querySelector('.button-close');
+    buttonDeleteList.addEventListener('click', () => this.delete())
 
     const entryForm = listEl.querySelector('.list__entry')
     entryForm.addEventListener('submit', (event) => {

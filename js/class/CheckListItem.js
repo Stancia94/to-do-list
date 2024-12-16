@@ -1,3 +1,4 @@
+export let completedTask = [];
 export class CheckListItem {
   title;
   itemEl;
@@ -12,7 +13,7 @@ export class CheckListItem {
   set titleValue(title) {
     this.title = title;
     if (!!this.itemEl) {
-      this.updateRender()
+      this.updateRender();
     }
   }
 
@@ -26,9 +27,19 @@ export class CheckListItem {
     this.itemEl.id = `checkListItem-${this.title}`;
   }
 
-  delete() {
-    this.itemEl.remove();
+  delete(complete) {
+    if (complete == true) {
+      completedTask.push(this);
+      this.itemEl.remove();
+    } else {
+      this.title = null;
+      this.content = null;
+      this.checked = false;
+      this.itemEl.remove();
+      this.itemEl = null;
+    }
   }
+
 
   render(containerEl) {
     const itemEl = document.createElement('div');

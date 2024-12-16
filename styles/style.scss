@@ -10,8 +10,11 @@
 './blocks/interface',
 './blocks/list',
 './blocks/input',
-'./blocks/button-default',
-'./blocks/button-close',
+'./blocks/button/button-default',
+'./blocks/button/button-close',
 './blocks/checkbox-task',
-'./blocks/button-create',
-'./blocks/button-delete';
+'./blocks/button/button-create',
+'./blocks/button/button-delete',
+'./blocks/button/button-rollup',
+'./blocks/completedTask',
+'./blocks/button/closeCompletedTask';

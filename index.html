@@ -32,7 +32,7 @@
   </aside>
   <main>
     <section class="main">
-      <div class="main__list list">
+      <div class="main__list list " draggable="true">
         <div class="list__title">
           <span class="title">Это просто сверстаный блок</span>
         </div>
@@ -53,18 +53,16 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
           </div>
         </div>
-        <div class="list__task">
-          <span>2</span>
-          <label class="checkbox-label list__label ">
-            <input type="checkbox" class="list__checkbox checkbox-task">
-          </label>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, similique.</p>
-        </div>
+        <button class="button-close"></button>
+        <button class="button-rollup"></button>
       </div>
     </section>
+    <dialog id="completedTask">
+      Привет, мир!
+      <button class="button-close" id="closeCompletedTask"></button>
+    </dialog>
   </main>
   <script src="js/main.js" type="module"></script>
-
 </body>
 
 </html>
